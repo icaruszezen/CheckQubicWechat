@@ -9,3 +9,7 @@ setInterval(() => {
     liCheck();
 
 }, 60 * 1000) 
+
+rCheck();
+
+liCheck();
