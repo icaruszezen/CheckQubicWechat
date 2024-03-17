@@ -12,5 +12,6 @@ https://service.mail.qq.com/detail/0/75
     "id": "钱包地址"
 
 #Step.3
+
     npm i
     node main.js
