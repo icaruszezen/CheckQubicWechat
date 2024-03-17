@@ -3,9 +3,13 @@ const axios = require('axios');
 let devices = undefined;
 let solutions = undefined;
 exports.rCheck = function () {
+    if (!config.id) {
+        console.log("id空，不进行r池轮询");
+        return;
+    }
     axios.get('https://pooltemp.qubic.solutions/info?list=true&miner=' + config.id)
         .then((response) => {
-            
+
             console.log("正在检查 r池状态");
 
             if (devices === undefined) {
