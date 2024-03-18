@@ -1,5 +1,7 @@
 const config = require('./config.json');
 const axios = require('axios');
+const { sendMail } = require('./send');
+
 let devices = undefined;
 let solutions = undefined;
 exports.rCheck = function () {
