@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+const config = require('./config.json');
 
 exports.sendMail = function (title, desc) {
     // 创建一个SMTP传输器对象  
