@@ -1,6 +1,6 @@
 const config = require('./config.json');
 const axios = require('axios');
-const { sendMail } = require('./send');
+const { send } = require('./send');
 
 let devices = undefined;
 let solutions = undefined;
@@ -24,13 +24,13 @@ exports.rCheck = function () {
             }
 
             if (response.data.devices < devices) {
-                sendMail("r池有机器掉线了，请关注！", "当前r池机器列表：" + JSON.stringify(response.data.device_list.map(v => v.label)));
+                send("r池有机器掉线了，请关注！", "当前r池机器列表：" + JSON.stringify(response.data.device_list.map(v => v.label)));
             }
             if (response.data.devices > devices) {
-                sendMail("r池增加设备", "当前r池机器列表：" + JSON.stringify(response.data.device_list.map(v => v.label)));
+                send("r池增加设备", "当前r池机器列表：" + JSON.stringify(response.data.device_list.map(v => v.label)));
             }
             if (response.data.solutions > solutions) {
-                sendMail("恭喜r池爆块！", "当前r池爆块总数：" + response.data.solutions);
+                send("恭喜r池爆块！", "当前r池爆块总数：" + response.data.solutions);
             }
             //刷新当前进度 
             devices = response.data.devices;

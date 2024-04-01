@@ -1,10 +1,11 @@
 const axios = require('axios');
-const { sendMail } = require('./send');
+const { send } = require('./send');
 const config = require('./config.json');
 const fs = require('fs');
 const filePath = './ck';
 
 async function getToken() {
+    
     const url = "https://api.qubic.li/Auth/Login";
     const requestPayload = {
         "userName": config.li_user,
@@ -44,7 +45,7 @@ async function setCkToken(data) {
 
 // token存档  
 async function minerInfo(getTokenFlag = false) {
-
+    
     try {
         let token = await getCkToken();
         if (!token || getTokenFlag === true) {
@@ -116,11 +117,11 @@ exports.liCheck = function () {
             });
 
             if (lost.length > 0) {
-                sendMail("li池有机器掉线了", "掉线机器列表 " + JSON.stringify(lost));
+                send("li池有机器掉线了", "掉线机器列表 " + JSON.stringify(lost));
             }
 
             if (minerPerformance.foundSolutions > solutions) {
-                sendMail("恭喜li池爆块！", "当前li池爆块总数：" + minerPerformance.foundSolutions);
+                send("恭喜li池爆块！", "当前li池爆块总数：" + minerPerformance.foundSolutions);
             }
 
             //刷新最终状态

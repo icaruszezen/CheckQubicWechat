@@ -1,7 +1,15 @@
-{
+{   
+    "type": "both",
+
+    "wechat": "true",
+    "token": "yourToken",
+    "test":"true",
+
     "user": "xxxx@qq.com",
     "pass": "xxxx",
+
     "id": "xxxx",
-    "li_user": "xxxx@gmail.com",
+
+    "li_user": "xxxx",
     "li_pass": "xxxx"
 }
